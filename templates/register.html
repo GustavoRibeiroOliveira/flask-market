@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Register Page
+{% endblock %}
+
+{% block content %}
+    <div class="flex justify-center bg-slate-800 rounded-3xl w-5/12 m-auto mt-16 py-5 shadow shadow-slate-800">
+        <form method="POST" class="w-[60%] mx-auto" style="color:white">
+            {{ form.hidden_tag() }}
+            <div class="mb-5">
+                <h1 class="text-white flex justify-center text-3xl">Create Account</h1>
+            </div>
+            <div class="mb-5">
+                {{ form.username.label(class="block mb-2 text-white") }}
+                {{ form.username(class="bg-gray-300 border border-gray-700 text-black text-sm rounded-lg block w-full p-2.5 outline-none", placeholder="User Name") }}
+            </div>
+            <div class="mb-5">
+                {{ form.email.label(class="block mb-2 text-white") }}
+                {{ form.email(class="bg-gray-300 border border-gray-700 text-black text-sm rounded-lg block w-full p-2.5 outline-none", placeholder="Email Address") }}
+            </div>
+            <div class="mb-5">
+                {{ form.password1.label(class="block mb-2 text-white") }}
+                {{ form.password1(class="bg-gray-300 border border-gray-700 text-black text-sm rounded-lg block w-full p-2.5 outline-none", placeholder="Password") }}
+            </div>
+            <div class="mb-10">
+                {{ form.password2.label(class="block mb-2 text-white") }}
+                {{ form.password2(class="bg-gray-300 border border-gray-700 text-black text-sm rounded-lg block w-full p-2.5 outline-none", placeholder="Confirm Password") }}
+            </div>
+            <a class="hover:text-slate-300 transition text-sm justify-center flex mb-5 underline" href="{{ url_for('login_page') }}">Already have an account?</a>
+            <div class="mb-5 flex justify-center">
+                {{ form.submit(class="bg-blue-600 hover:bg-blue-800 px-2 py-2 transition text-white text-sm rounded-lg block w-1/2 p-2.5 outline-none") }}
+            </div>
+        </form>
+    </div>
+{% endblock %}

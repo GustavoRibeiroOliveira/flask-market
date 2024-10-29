@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Market Page
+{% endblock %}
+
+{% block content %}
+<div class="relative overflow-x-auto">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+        <thead class="text-xs text-white uppercase bg-gray-700">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    ID
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Name
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Barcode
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Options
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr class="text-white border-b-2 bg-gray-800 border-gray-700">
+                <td class="px-6 py-4">
+                    {{item.id}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.name}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.barcode}}
+                </td>
+                <td class="px-6 py-4">
+                    {{item.price}}$
+                </td>
+                <td class="px-6 py-4">
+                    <button class="bg-blue-600 hover:bg-blue-800 px-2 py-2 rounded-lg transition">More Info</button>
+                    <button class="bg-green-600 hover:bg-green-800 px-2 py-2 rounded-lg ml-2 transition">Purchase This Item</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
